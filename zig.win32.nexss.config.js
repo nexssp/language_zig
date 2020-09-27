@@ -1,4 +1,7 @@
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require("../config." + process.platform)
+);
 languageConfig.title = "Zig";
 languageConfig.description =
   "Zig is a general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.";
