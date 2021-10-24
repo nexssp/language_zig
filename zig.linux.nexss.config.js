@@ -4,8 +4,9 @@ const sudo = process.sudo;
 const distName = process.distro;
 const v = parseInt(process.distroVersion);
 
-const zigVersion = "0.8.0";
-const foldername = `zig-linux-x86_64-${zigVersion}-dev.2065+bc06e1982`;
+const zigVersion = "0.9.0";
+const devVersion = "dev.1444+e2a2e6c14";
+const foldername = `zig-linux-x86_64-${zigVersion}-${devVersion}`;
 const filename = `${foldername}.tar.xz`;
 
 languageConfig.compilers = {
@@ -27,6 +28,12 @@ switch (distName) {
     // from 20.04 install by snap
     if (v >= 20) {
       languageConfig.compilers.zig.install = `${sudo}snap install zig --classic --edge`;
+    } else {
+      languageConfig.compilers.zig.install =
+        languageConfig.compilers.zig.install.replace(
+          "wget tar xz",
+          "wget tar xz-utils"
+        );
     }
     break;
   case process.distros.FEDORA:
