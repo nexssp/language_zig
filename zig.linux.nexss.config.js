@@ -4,8 +4,8 @@ const sudo = process.sudo;
 const distName = process.distro;
 const v = parseInt(process.distroVersion);
 
-const zigVersion = "0.9.0";
-const devVersion = "dev.1444+e2a2e6c14";
+const zigVersion = "0.11.0";
+const devVersion = "dev.2646+3d33a0906";
 const foldername = `zig-linux-x86_64-${zigVersion}-${devVersion}`;
 const filename = `${foldername}.tar.xz`;
 
